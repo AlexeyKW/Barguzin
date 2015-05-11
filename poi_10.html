@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+                <link rel="stylesheet" href="css/swiper.css">
+        <title>Hello World</title>
+                  <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+          <script type="text/javascript" src="jquery.mobile-1.4.5.js"></script>
+          <script type="text/javascript" src="js/swiper.js"></script>
+ <style type="text/css">
+html, body{ padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+}
+#poi_title {
+height: 18%;
+width: 100%;
+top: 0px;
+background: #000000;
+}
+
+#poi_gallery {
+height: 18%;
+width: 100%;
+bottom: 0px;
+background: #ffffff;
+}
+
+#poi_main {
+height: 64%;
+width: 100%;
+bottom: 0px;
+background: #ff00ff;
+overflow: scroll;
+overflow-x:hidden;
+}
+
+#poi_map {
+float: right;
+height: 100%;
+width: 18%;
+background: #ffffff;
+background-image:url('img/map_marker.png');
+    background-repeat:no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+}
+
+#poi_caption {
+float: left;
+height: 100%;
+width: 82%;
+background: #00ffff;
+text-align: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        background-position: center;
+        background-size: cover;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+  </style>        
+        
+<script type='text/javascript'>//<![CDATA[ 
+$(document).ready(function(){
+$(window).load(function(){      
+
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'horizontal',
+        slidesPerView: 5,
+        queueStartCallbacks: true,
+        watchActiveIndex: true,
+        freeModeFluid: false,
+        visibilityFullFit: true,
+        momentumBounceRatio: 15,
+        resizeReInit: true
+    });
+    
+     $('.swiper-slide').eq(0).click(function(e) {  
+      alert(0);
+    });
+    $('.swiper-slide').eq(1).click(function(e) {  
+      alert(1);
+    });
+    $('.swiper-slide').eq(2).click(function(e) {  
+      alert(2);
+    });
+    $('.swiper-slide').eq(3).click(function(e) {  
+      alert(3);
+    });
+    $('.swiper-slide').eq(4).click(function(e) {  
+      alert(4);
+    });
+    $('.swiper-slide').eq(5).click(function(e) {  
+      alert(5);
+    });
+    $('.swiper-slide').eq(6).click(function(e) {  
+      alert(6);
+    });
+    $('.swiper-slide').eq(7).click(function(e) {  
+      alert(7);
+    });
+    $('.swiper-slide').eq(8).click(function(e) {  
+      alert(8);
+    });
+    $('.swiper-slide').eq(9).click(function(e) {  
+      alert(9);
+    });
+    $('.swiper-slide').eq(10).click(function(e) {  
+      alert(10);
+    });
+
+    $(window).resize( function() {
+
+            var w = $(window).width();
+            var h = $(window).height();
+            if (h>w)
+            {
+                    if (typeof swiper !== 'undefined') {
+    swiper.destroy();
+    swiper = undefined;
+    
+    swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'horizontal',
+        slidesPerView: 3,
+        queueStartCallbacks: true,
+        watchActiveIndex: true,
+        freeModeFluid: false,
+        visibilityFullFit: true,
+        momentumBounceRatio: 15,
+        resizeReInit: true
+    });
+}
+            }
+            else
+            {
+if (typeof swiper !== 'undefined') {
+    swiper.destroy();
+    swiper = undefined;
+    
+        swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'horizontal',
+        slidesPerView: 5,
+        queueStartCallbacks: true,
+        watchActiveIndex: true,
+        freeModeFluid: false,
+        visibilityFullFit: true,
+        momentumBounceRatio: 15,
+        resizeReInit: true
+    });
+}   
+            }
+    
+
+});
+
+});//]]>  
+});
+</script>
+        
+    </head>
+    <body>
+   <div id="poi_title">
+   <div id="poi_caption">
+   <p>Хариусовые озера</p>
+   </div>
+<div id="poi_map">
+
+</div>
+   </div>
+      <div id="poi_main">
+<p>Местоположение: группа из двух озер в среднем течении долины р.Большая, 45км от берега Байкала. Озера - старичного происхождения, расположены в расширенной части речной долины, когда-то занятой древним запрудным озером у основания массива Зарод. Берега трудно проходимы - завалены погибшим от частого схода снежных лавин лесом. В озерах водится хариус.</p>
+   </div>
+      <div id="poi_gallery">
+<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(img/poi/chayachi_oz.jpg)">
+            <p class="gall_label">Чаячьи острова</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/dolina_7_oz.jpg)">
+            <p class="gall_label">Долина 7 озер</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/dyni.jpg)">
+            <p class="gall_label">Песчаные дюны</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/harius_oz.jpg)">
+            <p class="gall_label">Хариусовые  озера</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/karasyevie_oz.jpg)">
+            <p class="gall_label">Карасевые озера</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/meandr.jpg)">
+            <p class="gall_label">Меандр на р.Большая</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/mis_valukan.jpg)">
+            <p class="gall_label">Мыс Валукан</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/ozera_shumiliha.jpg)">
+            <p class="gall_label">Озера в долине р.Шумилиха</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/shumiliha.jpg)">
+            <p class="gall_label">Долина р.Шумилиха</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/visyachaya_dolina.jpg)">
+            <p class="gall_label">Висячая долина ключа Жигуна </p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/vodopad_shumiliha.jpg)">
+            <p class="gall_label">Водопад на р.Шумилиха</p></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+   </div>
+    </body>
+</html>

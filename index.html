@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+        <title>Hello World</title>
+                  <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+          <script type="text/javascript" src="jquery.mobile-1.4.5.js"></script>
+ <style type="text/css">
+/* portrait */
+@media screen and (orientation:portrait) {
+	/* portrait-specific styles */
+        html, body
+{
+height: 100%;
+margin: 0; 
+padding: 0; 
+background-color: #00ff00;
+}
+    #wrap { margin: 0 auto;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    }
+    #header {height: 30%; background-color: #ff0000;}
+
+#main_menu {background-color: #0ff000; width: 100%; height: 100%;}
+    #left_menu {background-color: #111111; float: left; height: 100%; width: 50%;
+    background-image:url('img/main_buttons/left.jpg');
+    background-repeat:no-repeat;
+    background-size: auto 100%;
+    background-position:center center;
+    }
+    #top_menu {background-color: #222222; height: 35%; width: 50%; 
+    float: right;
+    background-image:url('img/main_buttons/top.jpg');
+    background-repeat:no-repeat;
+    background-size: auto 100%;
+    background-position:center center;
+    }
+#bottom_menu {background-color: #333333; height: 35%; width: 50%;
+float: right;
+background-image:url('img/main_buttons/bottom.jpg');
+    background-repeat:no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+}
+    }
+    
+    
+/* landscape */
+@media screen and (orientation:landscape) {
+	/* landscape-specific styles */
+        html, body
+{
+height: 100%;
+margin: 0; 
+padding: 0; 
+background-color: #00ff00;
+}
+    #wrap { margin: 0 auto;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    }
+    #header {height: 20%; background-color: #ff0000; display: block;}
+#main_menu {background-color: #0ff000; width: 100%; height: 100%; display: block;}
+    #left_menu {
+    display: block;
+    background-color: #111111; float: left; height: 100%; width: 30%;
+    background-image:url('img/main_buttons/left.jpg');
+    background-repeat:no-repeat;
+    background-size: auto 100%;
+    background-position:center center;
+    }
+    #top_menu {
+    float: right;
+    display: block;
+    background-color: #222222; height: 40%; width: 70%;
+    background-image:url('img/main_buttons/top.jpg');
+    background-repeat:no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+    }
+#bottom_menu {
+float: right;
+display: block;
+    background-color: #333333; height: 40%; width: 70%;
+    background-image:url('img/main_buttons/bottom.jpg');
+    background-repeat:no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+}
+} 
+  </style>        
+        
+<script type='text/javascript'>//<![CDATA[ 
+$(document).ready(function(){
+$(window).load(function(){        
+$('#left_menu').click(function() {
+  self.location='about.html';
+  });
+$('#top_menu').click(function() {
+  self.location='poi.html';
+  });
+$('#bottom_menu').click(function() {
+  self.location='map.html?a=1&b=3&c=m2-m3-m4-m5';
+  });
+});//]]>  
+});
+</script>
+        
+    </head>
+    <body>
+   <div id="wrap">
+   <div id="header">
+   <img src="img/main_buttons/logo.gif">
+   </div>
+   <div id="main_menu">
+   <div id="left_menu">
+
+   </div>
+   <div id="top_menu">
+
+   </div>
+   <div id="bottom_menu">
+
+   </div>
+   
+   </div>
+   </div>
+    </body>
+</html>

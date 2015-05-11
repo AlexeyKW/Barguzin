@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Hello World</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="css/swiper.css">
+
+
+        <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>        
+        <script type="text/javascript" src="js/leaflet.js"></script>
+          <script type="text/javascript" src="js/leaflet-button-control.js"></script>
+          <script type="text/javascript" src="js/swiper.js"></script>
+    <link 
+        rel="stylesheet" 
+        href="css/leaflet.css"
+    />
+            <script type="text/javascript" src="js/routes.js"></script>
+            <link rel="stylesheet" href="css/routes.css">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+
+        }
+
+#mappark {height: 100%;
+            width: 100%;
+            position: absolute;
+}
+
+        #gallery {
+        position: absolute;
+        bottom: 3%;
+        height: 18%;
+        width: 100%;
+z-index:200;
+transparent: 100%;
+}
+    
+.swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        background-position: center;
+        background-size: cover;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .gall_label{
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="mappark">
+
+    </div>
+
+<div id="gallery">
+<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(img/poi/chayachi_oz.jpg)">
+            <p class="gall_label">Чаячьи острова</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/dolina_7_oz.jpg)">
+            <p class="gall_label">Долина 7 озер</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/dyni.jpg)">
+            <p class="gall_label">Песчаные дюны</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/harius_oz.jpg)">
+            <p class="gall_label">Хариусовые  озера</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/karasyevie_oz.jpg)">
+            <p class="gall_label">Карасевые озера</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/meandr.jpg)">
+            <p class="gall_label">Меандр на р.Большая</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/mis_valukan.jpg)">
+            <p class="gall_label">Мыс Валукан</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/ozera_shumiliha.jpg)">
+            <p class="gall_label">Озера в долине р.Шумилиха</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/shumiliha.jpg)">
+            <p class="gall_label">Долина р.Шумилиха</p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/visyachaya_dolina.jpg)">
+            <p class="gall_label">Висячая долина ключа Жигуна </p></div>
+            <div class="swiper-slide" style="background-image:url(img/poi/vodopad_shumiliha.jpg)">
+            <p class="gall_label">Водопад на р.Шумилиха</p></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+    <script>
+$(document).ready(function(){
+$(window).load(function(){      
+
+if (window.location.search.substring(1) !== ''){
+alert(window.location.search.substring(1)); 
+}
+        var map = L.map('mappark').setView([54.38, 109.6106], 9);
+
+L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+
+        var marker1 = L.marker([54.634, 109.615]).addTo(map);
+        marker1.bindPopup("<b>Озеро</b><br>Лосиное</br>");
+        var marker2 = L.marker([54.10, 109.59]).addTo(map);
+        marker2.bindPopup("<b>Водопад</b><br>на р. Шумилиха</br>");
+                var marker3 = L.marker([54.08, 109.62]).addTo(map);
+        marker3.bindPopup("<b>Долина</b><br>р. Шумилиха</br>");
+                var marker4 = L.marker([54.15, 109.56]).addTo(map);
+        marker4.bindPopup("<b>Песчаные дюны</b><br>в устье р. Шумилиха</br>");
+                        var marker5 = L.marker([54.504, 109.970]).addTo(map);
+        marker5.bindPopup("<b>Плато</b><br>Зародное</br>");
+        var marker6 = L.marker([54.325, 109.886]).addTo(map);
+        marker6.bindPopup("<b>Висячая долина</b><br>ключа Жигуна</br>");
+                var marker7 = L.marker([54.504, 109.956]).addTo(map);
+        marker7.bindPopup("<b>Меандр</b><br>на р. Большая</br>");
+         var marker8 = L.marker([54.483, 109.918]).addTo(map);
+        marker8.bindPopup("<b>Водопад</b><br>на р. Нижняя Зародная</br>");
+         var marker9 = L.marker([54.473, 109.955]).addTo(map);
+        marker9.bindPopup("<b>Карасевые</b><br>озера</br>");
+         var marker10 = L.marker([54.483, 109.918]).addTo(map);
+        marker10.bindPopup("<b>Хариусовые</b><br>озера</br>");
+         var marker11 = L.marker([54.355, 109.502]).addTo(map);
+        marker11.bindPopup("<b>Давшинский</b><br>источник</br>");      
+         var marker12 = L.marker([54.309, 109.453]).addTo(map);
+        marker12.bindPopup("<b>Мыс</b><br>Валукан</br>"); 
+        var marker13 = L.marker([54.279, 109.464]).addTo(map);
+        marker13.bindPopup("<b>Чаячьи</b><br>острова</br>"); 
+        var marker14 = L.marker([54.070, 109.618]).addTo(map);
+        marker14.bindPopup("<b>Горные озера</b><br>в долине р.Шумилиха</br>"); 
+    
+map.addControl(new routes());
+    
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'horizontal',
+        slidesPerView: 5,
+        queueStartCallbacks: true,
+        watchActiveIndex: true,
+        freeModeFluid: false,
+        visibilityFullFit: true,
+        momentumBounceRatio: 15,
+        resizeReInit: true
+    });
+    
+     $('.swiper-slide').eq(0).click(function(e) {  
+     map.setView([54.279, 109.464], 12);
+                marker13.openPopup();
+    });
+    $('.swiper-slide').eq(1).click(function(e) {  
+      alert(1);
+    });
+    $('.swiper-slide').eq(2).click(function(e) {  
+      alert(2);
+    });
+    $('.swiper-slide').eq(3).click(function(e) {  
+      alert(3);
+    });
+    $('.swiper-slide').eq(4).click(function(e) {  
+      alert(4);
+    });
+    $('.swiper-slide').eq(5).click(function(e) {  
+      alert(5);
+    });
+    $('.swiper-slide').eq(6).click(function(e) {  
+      alert(6);
+    });
+    $('.swiper-slide').eq(7).click(function(e) {  
+      alert(7);
+    });
+    $('.swiper-slide').eq(8).click(function(e) {  
+      alert(8);
+    });
+    $('.swiper-slide').eq(9).click(function(e) {  
+      alert(9);
+    });
+    $('.swiper-slide').eq(10).click(function(e) {  
+      alert(10);
+    });
+
+    $(window).resize( function() {
+
+            var w = $(window).width();
+            var h = $(window).height();
+            if (h>w)
+            {
+                    if (typeof swiper !== 'undefined') {
+    swiper.destroy();
+    swiper = undefined;
+    
+    swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'horizontal',
+        slidesPerView: 3,
+        queueStartCallbacks: true,
+        watchActiveIndex: true,
+        freeModeFluid: false,
+        visibilityFullFit: true,
+        momentumBounceRatio: 15,
+        resizeReInit: true
+    });
+}
+            }
+            else
+            {
+if (typeof swiper !== 'undefined') {
+    swiper.destroy();
+    swiper = undefined;
+    
+        swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'horizontal',
+        slidesPerView: 5,
+        queueStartCallbacks: true,
+        watchActiveIndex: true,
+        freeModeFluid: false,
+        visibilityFullFit: true,
+        momentumBounceRatio: 15,
+        resizeReInit: true
+    });
+}   
+            }
+    
+
+});
+   
+});//]]>  
+});
+    </script>
+</body>
+</html>

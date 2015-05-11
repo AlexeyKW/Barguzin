@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Hello World</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+                    <script type="text/javascript" src="js/leaflet.js"></script>
+                    <script type="text/javascript" src="js/jquery.mobile-1.4.5"></script>
+          <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+          <script type="text/javascript" src="js/leaflet-button-control.js"></script>
+    <link 
+        rel="stylesheet" 
+        href="css/leaflet.css"
+    />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #mappark {
+            height: 100%;
+            width: 100%;
+        }
+       
+        .slide_cont {
+   margin-bottom: 50%;
+
+}
+
+.slidePhoto {
+height: 100px;
+width: 100px;
+}
+.slidePhoto img {
+height: 100px;
+width: 100px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="mappark">
+
+    </div>
+
+    <script>
+$(document).ready(function(){
+$(window).load(function(){      
+        var map = L.map('mappark').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+    
+var logo= L.control({position : 'bottomright'});
+    logo.onAdd = function(map) {
+    this._div = L.DomUtil.create('div', 'myControl');
+    var img_log = "<div class=\"slide_cont\">";
+    img_log = img_log+"<div class=\"slidePhoto top2\"><img src=\"img/main_buttons/top.jpg\"></img></div>";
+    img_log = img_log+"<div class=\"slidePhoto top1\"><img src=\"img/main_buttons/top.jpg\"></img></div>";
+    img_log = img_log+"<div class=\"slidePhoto active\"><img src=\"img/main_buttons/left.jpg\"></img></div>";
+    img_log = img_log+"<div class=\"slidePhoto bottom1\"><img src=\"img/main_buttons/bottom.jpg\"></img></div>";
+    img_log = img_log+"<div class=\"slidePhoto bottom2\"><img src=\"img/main_buttons/bottom.jpg\"></img></div>";
+    img_log = img_log+"</div>";
+    this._div.innerHTML = img_log;
+    return this._div;
+
+}
+logo.addTo(map);
+
+logo.getContainer().addEventListener('mouseover', function () {
+        map.dragging.disable();
+    });
+
+    // Re-enable dragging when user's cursor leaves the element
+    logo.getContainer().addEventListener('mouseout', function () {
+        map.dragging.enable();
+    });
+
+    logo.getContainer().addEventListener('startdrag', function () {
+        alert();
+    });
+    
+});//]]>  
+});
+    </script>
+</body>
+</html>
