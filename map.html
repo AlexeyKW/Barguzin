@@ -40,13 +40,14 @@
     />
             <script type="text/javascript" src="js/routes.js"></script>
             <link rel="stylesheet" href="css/routes.css">
+            <link rel="stylesheet" href="css/popup.css">
     <style>
         html, body {
             padding: 0;
             margin: 0;
             height: 100%;
             width: 100%;
-
+            overflow: hidden;
         }
 
 #mappark {height: 100%;
@@ -130,14 +131,46 @@ transparent: 100%;
     </div>
 </div>
 
+<div id="abc">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<!-- Contact Us Form -->
+<form action="#" id="form" method="post" name="form">
+<img id="close" src="img/close.png" onclick ="div_hide()">
+<h2>Маршруты</h2>
+<hr>
+<a href="javascript:%20show_route1()" id="submit">Река Большая</a>
+<a href="javascript:%20show_route2()" id="submit">Река Шумилиха</a>
+<a href="javascript:%20show_route3()" id="submit">Маршрут 3</a>
+</form>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
+
     <script>
+    var map;
+var marker1;
+var marker2;
+var marker3;
+var marker4;
+var marker5;
+var marker6;
+var marker7;
+var marker8;
+var marker9;
+var marker10;
+var marker11;
+var marker12;
+var marker13;
+var marker14;
+
 $(document).ready(function(){
 $(window).load(function(){      
 
 if (window.location.search.substring(1) !== ''){
 alert(window.location.search.substring(1)); 
 }
-        var map = L.map('mappark').setView([54.38, 109.6106], 9);
+        map = L.map('mappark').setView([54.38, 109.6106], 9);
 
 L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,
@@ -147,33 +180,33 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			id: 'examples.map-i875mjb7'
 		}).addTo(map);
 
-        var marker1 = L.marker([54.634, 109.615]).addTo(map);
+        marker1 = L.marker([54.634, 109.615]).addTo(map);
         marker1.bindPopup("<b>Озеро</b><br>Лосиное</br>");
-        var marker2 = L.marker([54.10, 109.59]).addTo(map);
+        marker2 = L.marker([54.10, 109.59]).addTo(map);
         marker2.bindPopup("<b>Водопад</b><br>на р. Шумилиха</br>");
-                var marker3 = L.marker([54.08, 109.62]).addTo(map);
+        marker3 = L.marker([54.08, 109.62]).addTo(map);
         marker3.bindPopup("<b>Долина</b><br>р. Шумилиха</br>");
-                var marker4 = L.marker([54.15, 109.56]).addTo(map);
+        marker4 = L.marker([54.15, 109.56]).addTo(map);
         marker4.bindPopup("<b>Песчаные дюны</b><br>в устье р. Шумилиха</br>");
-                        var marker5 = L.marker([54.504, 109.970]).addTo(map);
+        marker5 = L.marker([54.504, 109.970]).addTo(map);
         marker5.bindPopup("<b>Плато</b><br>Зародное</br>");
-        var marker6 = L.marker([54.325, 109.886]).addTo(map);
+        marker6 = L.marker([54.325, 109.886]).addTo(map);
         marker6.bindPopup("<b>Висячая долина</b><br>ключа Жигуна</br>");
-                var marker7 = L.marker([54.504, 109.956]).addTo(map);
+        marker7 = L.marker([54.504, 109.956]).addTo(map);
         marker7.bindPopup("<b>Меандр</b><br>на р. Большая</br>");
-         var marker8 = L.marker([54.483, 109.918]).addTo(map);
+        marker8 = L.marker([54.483, 109.918]).addTo(map);
         marker8.bindPopup("<b>Водопад</b><br>на р. Нижняя Зародная</br>");
-         var marker9 = L.marker([54.473, 109.955]).addTo(map);
+        marker9 = L.marker([54.473, 109.955]).addTo(map);
         marker9.bindPopup("<b>Карасевые</b><br>озера</br>");
-         var marker10 = L.marker([54.483, 109.918]).addTo(map);
+        marker10 = L.marker([54.483, 109.918]).addTo(map);
         marker10.bindPopup("<b>Хариусовые</b><br>озера</br>");
-         var marker11 = L.marker([54.355, 109.502]).addTo(map);
+        marker11 = L.marker([54.355, 109.502]).addTo(map);
         marker11.bindPopup("<b>Давшинский</b><br>источник</br>");      
-         var marker12 = L.marker([54.309, 109.453]).addTo(map);
+        marker12 = L.marker([54.309, 109.453]).addTo(map);
         marker12.bindPopup("<b>Мыс</b><br>Валукан</br>"); 
-        var marker13 = L.marker([54.279, 109.464]).addTo(map);
+        marker13 = L.marker([54.279, 109.464]).addTo(map);
         marker13.bindPopup("<b>Чаячьи</b><br>острова</br>"); 
-        var marker14 = L.marker([54.070, 109.618]).addTo(map);
+        marker14 = L.marker([54.070, 109.618]).addTo(map);
         marker14.bindPopup("<b>Горные озера</b><br>в долине р.Шумилиха</br>"); 
     
 map.addControl(new routes());
@@ -276,6 +309,24 @@ if (typeof swiper !== 'undefined') {
    
 });//]]>  
 });
+
+function div_show() {
+document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+document.getElementById('abc').style.display = "none";
+} 
+
+function show_route1(){
+document.getElementById('abc').style.display = "none";
+     map.setView([54.279, 109.464], 12);
+                marker13.openPopup();
+}    
+function show_route2(){
+document.getElementById('abc').style.display = "none";
+alert('2');
+}    
     </script>
 </body>
 </html>
