@@ -167,9 +167,6 @@ var marker14;
 $(document).ready(function(){
 $(window).load(function(){      
 
-if (window.location.search.substring(1) !== ''){
-alert(window.location.search.substring(1)); 
-}
         map = L.map('mappark').setView([54.38, 109.6106], 9);
 
 L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
@@ -210,6 +207,91 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
         marker14.bindPopup("<b>Горные озера</b><br>в долине р.Шумилиха</br>"); 
     
 map.addControl(new routes());
+
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '1'){
+     map.setView([54.15, 109.56], 12);
+                marker3.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '2'){
+     map.setView([54.15, 109.56], 12);
+                marker4.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '3'){
+     map.setView([54.070, 109.618], 12);
+                marker14.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '4'){
+     map.setView([54.10, 109.59], 12);
+                marker2.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '5'){
+     map.setView([54.504, 109.970], 12);
+                marker5.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '6'){
+     map.setView([54.483, 109.918], 12);
+                marker8.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '7'){
+     map.setView([54.325, 109.886], 12);
+                marker6.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '8'){
+     map.setView([54.504, 109.956], 12);
+                marker7.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '9'){
+     map.setView([54.473, 109.955], 12);
+                marker9.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '10'){
+     map.setView([54.483, 109.918], 12);
+                marker10.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '11'){
+     map.setView([54.355, 109.502], 12);
+                marker11.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '16'){
+     map.setView([54.309, 109.453], 12);
+                marker12.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '17'){
+     map.setView([54.279, 109.464], 12);
+                marker13.openPopup();
+}
+}
+if (window.location.search.substring(1) !== ''){
+if (window.location.search.substring(1) == '18'){
+     map.setView([54.634, 109.615], 12);
+                marker1.openPopup();
+}
+}
     
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
